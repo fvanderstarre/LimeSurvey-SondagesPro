@@ -284,7 +284,7 @@ use Plugin;
             {
                 foreach ($this->plugins as $plugin)
                 {
-                    if (get_class($plugin) == $pluginName)
+                    if (!is_null($plugin) &&  get_class($plugin) == $pluginName)
                     {
                         return $plugin;
                     }
