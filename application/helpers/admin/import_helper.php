@@ -974,6 +974,15 @@ function XMLImportSurvey($sFullFilePath,$sXMLdata=NULL,$sNewSurveyName=NULL,$iDe
         {
             $insertdata['surveyls_title']=$sNewSurveyName;
         }
+        /* Remove unknow column */
+        $aModelsColumns=SurveyLanguageSetting::model()->attributes;
+        $aBadData=array_diff_key($insertdata, $aModelsColumns);
+        $insertdata=array_intersect_key ($insertdata,$aModelsColumns);
+        // Fill a optionnal array of error
+        foreach($aBadData as $key=>$value)
+        {
+            $results['importwarnings'][]=sprintf(gT("This survey language setting has not been imported: %s => %s"),$key,$value);
+        }
         if ($bTranslateInsertansTags)
         {
             $insertdata['surveyls_title']=translateLinks('survey', $iOldSID, $iNewSID, $insertdata['surveyls_title']);
