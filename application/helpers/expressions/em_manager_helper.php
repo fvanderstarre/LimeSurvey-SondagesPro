@@ -865,11 +865,11 @@
                     // output the values for prior question is there was one
                     if ($_qid != -1)
                     {
-                        if (count($relOrList) > 0)
+                        if (!empty($relOrList))
                         {
                             $relAndList[] = '(' . implode(' or ', $relOrList) . ')';
                         }
-                        if (count($relAndList) > 0)
+                        if (!empty($relAndList))
                         {
                             $scenarios[] = '(' . implode(' and ', $relAndList) . ')';
                         }
@@ -889,7 +889,7 @@
                 }
                 if ($row['scenario'] != $_scenario)
                 {
-                    if (count($relOrList) > 0)
+                    if (!empty($relOrList))
                     {
                         $relAndList[] = '(' . implode(' or ', $relOrList) . ')';
                     }
@@ -1022,11 +1022,11 @@
             // output last one
             if ($_qid != -1)
             {
-                if (count($relOrList) > 0)
+                if (!empty($relOrList))
                 {
                     $relAndList[] = '(' . implode(' or ', $relOrList) . ')';
                 }
-                if (count($relAndList) > 0)
+                if (!empty($relAndList))
                 {
                     $scenarios[] = '(' . implode(' and ', $relAndList) . ')';
                 }
@@ -1088,7 +1088,7 @@
                 }
                 $questionNum = $qinfo['qid'];
                 $type = $qinfo['type'];
-                $hasSubqs = (isset($qinfo['subqs']) && count($qinfo['subqs'] > 0));
+                $hasSubqs = !empty($qinfo['subqs']);
                 $qattr = isset($this->qattr[$questionNum]) ? $this->qattr[$questionNum] : array();
                 if (isset($qattr['input_boxes']) && $qattr['input_boxes'] == '1')
                 {
@@ -1225,7 +1225,7 @@
                                                     }
                                                 }
                                             }
-                                            if (count($fsqs) > 0)
+                                            if (!empty($fsqs))
                                             {
                                                 $af_names[] = '(' . implode(' or ', $fsqs) . ')';
                                             }
@@ -1275,7 +1275,7 @@
                                                     }
                                                 }
                                             }
-                                            if (count($fsqs) > 0)
+                                            if (!empty($fsqs))
                                             {
                                                 $afe_names[] = '(' . implode(' and ', $fsqs) . ')';
                                             }
@@ -1307,13 +1307,13 @@
                             $af_names = array_unique($af_names);
                             $afe_names= array_unique($afe_names);
 
-                            if (count($af_names) > 0 || count($afe_names) > 0) {
+                            if (!empty($af_names) || !empty($afe_names)) {
                                 $afs_eqn = '';
-                                if (count($af_names) > 0)
+                                if (!empty($af_names))
                                 {
                                     $afs_eqn .= implode(' && ', $af_names);
                                 }
-                                if (count($afe_names) > 0)
+                                if (!empty($afe_names))
                                 {
                                     if ($afs_eqn != '')
                                     {
@@ -1579,7 +1579,7 @@
                                 );
                             }
                         }
-                        if (count($sq_names) > 0) {
+                        if (!empty($sq_names)) {
                             if (!isset($validationEqn[$questionNum]))
                             {
                                 $validationEqn[$questionNum] = array();
@@ -1647,7 +1647,7 @@
                                 );
                             }
                         }
-                        if (count($sq_names) > 0) {
+                        if (!empty($sq_names)) {
                             if (!isset($validationEqn[$questionNum]))
                             {
                                 $validationEqn[$questionNum] = array();
@@ -1716,7 +1716,7 @@
                                 );
                             }
                         }
-                        if (count($sq_names) > 0) {
+                        if (!empty($sq_names)) {
                             if (!isset($validationEqn[$questionNum]))
                             {
                                 $validationEqn[$questionNum] = array();
@@ -1766,7 +1766,7 @@
                                 $sq_names[] = $sq_name;
                             }
                         }
-                        if (count($sq_names) > 0) {
+                        if (!empty($sq_names)) {
                             if (!isset($validationEqn[$questionNum]))
                             {
                                 $validationEqn[$questionNum] = array();
@@ -1923,7 +1923,7 @@
                                 }
                             }
                         }
-                        if (count($sq_names) > 0 && isset($eoVarName)) { // eoVarName not set : exclude option don't exist in sub question code
+                        if (!empty($sq_names) && isset($eoVarName)) { // eoVarName not set : exclude option don't exist in sub question code
                             $relpart = "sum(" . implode(".relevanceStatus, ", $sq_names) . ".relevanceStatus)";
                             $checkedpart = "count(" . implode(".NAOK, ", $sq_names) . ".NAOK)";
                             $eoRelevantAndUnchecked = "(" . $eoVarName . ".relevanceStatus && is_empty(" . $eoVarName . "))";
@@ -2064,7 +2064,7 @@
                                 $sq_names[] = $sq_name;
                             }
                         }
-                        if (count($sq_names) > 0) {
+                        if (!empty($sq_names)) {
                             if (!isset($validationEqn[$questionNum]))
                             {
                                 $validationEqn[$questionNum] = array();
@@ -2150,7 +2150,7 @@
                                 $sq_names[] = $sq_name;
                             }
                         }
-                        if (count($sq_names) > 0) {
+                        if (!empty($sq_names)) {
                             if (!isset($validationEqn[$questionNum]))
                             {
                                 $validationEqn[$questionNum] = array();
@@ -2237,7 +2237,7 @@
                                 );
                             }
                         }
-                        if (count($sq_names) > 0) {
+                        if (!empty($sq_names)) {
                             if (!isset($validationEqn[$questionNum]))
                             {
                                 $validationEqn[$questionNum] = array();
@@ -2307,7 +2307,7 @@
                                 );
                             }
                         }
-                        if (count($sq_names) > 0) {
+                        if (!empty($sq_names)) {
                             if (!isset($validationEqn[$questionNum]))
                             {
                                 $validationEqn[$questionNum] = array();
@@ -2357,7 +2357,7 @@
                                 $sq_names[] = $sq_name;
                             }
                         }
-                        if (count($sq_names) > 0) {
+                        if (!empty($sq_names)) {
                             if (!isset($validationEqn[$questionNum]))
                             {
                                 $validationEqn[$questionNum] = array();
@@ -2421,7 +2421,7 @@
                                 $sq_names[] = $sq_name;
                             }
                         }
-                        if (count($sq_names) > 0) {
+                        if (!empty($sq_names)) {
                             if (!isset($validationEqn[$questionNum]))
                             {
                                 $validationEqn[$questionNum] = array();
@@ -2492,7 +2492,7 @@
                                 );
                             }
                         }
-                        if (count($sq_names) > 0) {
+                        if (!empty($sq_names)) {
                             if (!isset($validationEqn[$questionNum]))
                             {
                                 $validationEqn[$questionNum] = array();
@@ -2549,7 +2549,7 @@
                                 );
                             }
                         }
-                        if (count($sq_names) > 0) {
+                        if (!empty($sq_names)) {
                             if (!isset($validationEqn[$questionNum]))
                             {
                                 $validationEqn[$questionNum] = array();
@@ -2671,7 +2671,7 @@
                                 );
                             }
                         }
-                        if (count($sq_eqns) > 0) {
+                        if (!empty($sq_eqns)) {
                             if (!isset($validationEqn[$questionNum]))
                             {
                                 $validationEqn[$questionNum] = array();
@@ -2950,7 +2950,7 @@
                                 }
                             }
                         }
-                        if (count($sq_names) > 0) {
+                        if (!empty($sq_names)) {
                             if (!isset($validationEqn[$questionNum]))
                             {
                                 $validationEqn[$questionNum] = array();
@@ -3027,7 +3027,7 @@
                                 $sq_names[] = $sq_name;
                             }
                         }
-                        if (count($sq_names) > 0) {
+                        if (!empty($sq_names)) {
                             if (!isset($validationEqn[$questionNum]))
                             {
                                 $validationEqn[$questionNum] = array();
@@ -3123,7 +3123,7 @@
                                 }
                             }
                         }
-                        if (count($sq_names) > 0) {
+                        if (!empty($sq_names)) {
                             if (!isset($validationEqn[$questionNum]))
                             {
                                 $validationEqn[$questionNum] = array();
@@ -3437,7 +3437,7 @@
                     }
                 }
 
-                if (count($qtips) > 0)
+                if (!empty($qtips))
                 {
                     $validationTips[$questionNum] = $qtips;
                 }
@@ -3471,11 +3471,11 @@
                 $eos = array_unique($sq['exclusive_options']);
                 $isExclusive = '';
                 $irrelevantAndExclusive = '';
-                if (count($eos) > 0)
+                if (!empty($eos))
                 {
                     $isExclusive = '!(' . implode(' and ', $eos) . ')';
                     $noneos = array_unique($sq['eqns']);
-                    if (count($noneos) > 0)
+                    if (!empty($noneos))
                     {
                         $irrelevantAndExclusive = '(' . implode(' and ', $noneos) . ') and ' . $isExclusive;
                     }
@@ -4452,7 +4452,7 @@
                 return $string;
             }
 
-            if (isset($replacementFields) && is_array($replacementFields) && count($replacementFields) > 0)
+            if (isset($replacementFields) && is_array($replacementFields) && !empty($replacementFields))
             {
                 $replaceArray = array();
                 foreach ($replacementFields as $key => $value) {
@@ -4738,7 +4738,7 @@
             }
             array_shift($parts);
 
-            if (count($parts) > 0)
+            if (!empty($parts))
             {
                 if (preg_match('/^' . ExpressionManager::$RDP_regex_var_attr . '$/',$parts[count($parts)-1]))
                 {
@@ -4823,7 +4823,7 @@
                     $vars[] = $kv['sgqa'] . $suffix;
                 }
             }
-            if (count($vars) > 0)
+            if (!empty($vars))
             {
                 return implode(',',$vars);
             }
@@ -4931,7 +4931,7 @@
             $LEM->indexGseq=array();
             $LEM->indexQseq=array();
             $LEM->qrootVarName2arrayFilter=array();
-            if (isset($_SESSION[$LEM->sessid]['startingValues']) && is_array($_SESSION[$LEM->sessid]['startingValues']) && count($_SESSION[$LEM->sessid]['startingValues']) > 0)
+            if (isset($_SESSION[$LEM->sessid]['startingValues']) && is_array($_SESSION[$LEM->sessid]['startingValues']) && !empty($_SESSION[$LEM->sessid]['startingValues']) )
             {
                 foreach ($_SESSION[$LEM->sessid]['startingValues'] as $k=>$value)
                 {
@@ -5428,7 +5428,7 @@
                     switchMSSQLIdentityInsert("survey_{$this->sid}_timings", false);
                 }
             }
-            if (count($updatedValues) > 0 || $finished)
+            if (!empty($updatedValues) || $finished)
             {
                 $query = 'UPDATE ' . $this->surveyOptions['tablename'] . ' SET ';
                 $setter = array();
@@ -6453,7 +6453,7 @@
                     case '!': //List - dropdown
                     case 'L': //LIST drop-down/radio-button list
                         // If at least one checkbox is checked, we're OK
-                        if (count($relevantSQs) > 0 && (count($relevantSQs) == count($unansweredSQs)))
+                        if (!empty($relevantSQs) && (count($relevantSQs) == count($unansweredSQs)))
                         {
                             $qmandViolation = true;
                         }
@@ -6496,7 +6496,7 @@
                     case ';':
                     case '1':
                         // In general, if any relevant questions aren't answered, then it violates the mandatory rule
-                        if (count($unansweredSQs) > 0)
+                        if (!empty($unansweredSQs))
                         {
                             $qmandViolation = true; // TODO - what about 'other'?
                         }
@@ -6540,7 +6540,7 @@
                         }
                         else
                         {
-                            if (count($unansweredSQs) > 0)
+                            if (!empty($unansweredSQs))
                             {
                                 $qmandViolation = true; // TODO - what about 'other'?
                             }
@@ -6551,7 +6551,7 @@
                         }
                         break;
                     case 'R':
-                        if (count($unansweredSQs) > 0)
+                        if (!empty($unansweredSQs))
                         {
                             $qmandViolation = true; // TODO - what about 'other'?
                         }
@@ -6575,7 +6575,7 @@
                         }
                         break;
                     default:
-                        if (count($unansweredSQs) > 0)
+                        if (!empty($unansweredSQs))
                         {
                             $qmandViolation = true;
                         }
@@ -6596,14 +6596,14 @@
                     case '!': //List - dropdown
                     case 'L': //LIST drop-down/radio-button list
                         // If at least one checkbox is checked, we're OK
-                        if (count($relevantSQs) > 0 && (count($relevantSQs) == count($unansweredSQs)))
+                        if (!empty($relevantSQs) && (count($relevantSQs) == count($unansweredSQs)))
                         {
                             $anyUnanswered = true;
                         }
                         // what about optional vs. mandatory comment and 'other' fields?
                         break;
                     default:
-                        $anyUnanswered = (count($unansweredSQs) > 0);
+                        $anyUnanswered = (!empty($unansweredSQs));
                         break;
                 }
             }
@@ -6730,7 +6730,7 @@
                     $prettyPrintSubQList = $LEM->GetLastPrettyPrintExpression();
                     $debug_qmessage .= '----SubQs=> ' . $prettyPrintSubQList . "<br />\n";
 
-                    if (count($prettyPrintSQRelEqns) > 0)
+                    if (!empty($prettyPrintSQRelEqns))
                     {
                         $debug_qmessage .= "----Array Filters Applied:<br />\n";
                         foreach ($prettyPrintSQRelEqns as $key => $value)
@@ -6740,7 +6740,7 @@
                         $debug_qmessage .= "<br />\n";
                     }
 
-                    if (count($relevantSQs) > 0)
+                    if (!empty($relevantSQs))
                     {
                         $subQList = '{' . implode('}, {', $relevantSQs) . '}';
                         // pretty-print them
@@ -6749,7 +6749,7 @@
                         $debug_qmessage .= '----Relevant SubQs: ' . $prettyPrintSubQList . "<br />\n";
                     }
 
-                    if (count($irrelevantSQs) > 0)
+                    if (!empty($irrelevantSQs))
                     {
                         $subQList = '{' . implode('}, {', $irrelevantSQs) . '}';
                         // pretty-print them
@@ -6759,7 +6759,7 @@
                     }
 
                     // show which relevant subQs were not answered
-                    if (count($unansweredSQs) > 0)
+                    if (!empty($unansweredSQs))
                     {
                         $subQList = '{' . implode('}, {', $unansweredSQs) . '}';
                         // pretty-print them
@@ -7097,7 +7097,7 @@
             $LEM =& LimeExpressionManager::singleton();
 
             $totalTime = 0.;
-            if ((($LEM->debugLevel & LEM_DEBUG_TIMING) == LEM_DEBUG_TIMING) && count($LEM->runtimeTimings)>0) {
+            if ((($LEM->debugLevel & LEM_DEBUG_TIMING) == LEM_DEBUG_TIMING) && !empty($LEM->runtimeTimings)) {
                 $LEM->debugTimingMsg='';
                 foreach($LEM->runtimeTimings as $unit) {
                     $totalTime += $unit[1];
@@ -7428,7 +7428,7 @@
                     }
 
                     // Set color-coding for validation equations
-                    if (count($validationEqns) > 0) {
+                    if (!empty($validationEqns)) {
                         $valParts[] = "  isValidSum" . $arg['qid'] . "=true;\n";    // assume valid until proven otherwise
                         $valParts[] = "  isValidOther" . $arg['qid'] . "=true;\n";    // assume valid until proven otherwise
                         $valParts[] = "  isValidOtherComment" . $arg['qid'] . "=true;\n";    // assume valid until proven otherwise
@@ -7528,7 +7528,7 @@
                         }
                     }
 
-                    if (count($valParts) > 0)
+                    if (!empty($valParts))
                     {
                         $valJsVarsUsed = array_unique($valJsVarsUsed);
                         $qvalJS = "function LEMval" . $arg['qid'] . "(sgqa){\n";
@@ -7648,11 +7648,11 @@
 
                     $qrelJS = "function LEMrel" . $arg['qid'] . "(sgqa){\n";
                     $qrelJS .= "  var UsesVars = ' " . implode(' ', $relJsVarsUsed) . " ';\n";
-                    if (count($qrelQIDs) > 0)
+                    if (!empty($qrelQIDs))
                     {
                         $qrelJS .= "  if(" . implode(' || ', $qrelQIDs) . "){\n    ;\n  }\n  else";
                     }
-                    if (count($qrelgseqs) > 0)
+                    if (!empty($qrelgseqs))
                     {
                         $qrelJS .= "  if(" . implode(' || ', $qrelgseqs) . "){\n    ;\n  }\n  else";
                     }
@@ -7764,7 +7764,7 @@
                 // Only do this if there is no explicit group-level relevance equation, else may override group-level relevance
                 $dynamicQidsInG = (isset($dynamicQinG[$gr['gseq']]) ? $dynamicQinG[$gr['gseq']] : array());
                 $GalwaysVisible = (isset($GalwaysRelevant[$gr['gseq']]) ? $GalwaysRelevant[$gr['gseq']] : false);
-                if ($LEM->surveyMode == 'survey' && !$GalwaysVisible && count($dynamicQidsInG) > 0 && strlen(trim($gr['relevancejs']))== 0)
+                if ($LEM->surveyMode == 'survey' && !$GalwaysVisible && !empty($dynamicQidsInG) && strlen(trim($gr['relevancejs']))== 0)
                 {
                     // check whether any dependent questions  have changed
                     $relStatusTest = "($('#relevance" . implode("').val()=='1' || $('#relevance", array_keys($dynamicQidsInG)) . "').val()=='1')";
@@ -7796,7 +7796,7 @@
             $allJsVarsUsed = array_unique($allJsVarsUsed);
 
             // Add JavaScript Mapping Arrays
-            if (isset($LEM->alias2varName) && count($LEM->alias2varName) > 0)
+            if (!empty($LEM->alias2varName))
             {
                 $neededAliases=array();
                 $neededCanonical=array();
@@ -7824,13 +7824,13 @@
                     $neededCanonicalAttr[] = $LEM->varNameAttr[$nc];
                 }
                 $neededAliases = array_unique($neededAliases);
-                if (count($neededAliases) > 0)
+                if (!empty($neededAliases))
                 {
                     $jsParts[] = "var LEMalias2varName = {\n";
                     $jsParts[] = implode(",\n",$neededAliases);
                     $jsParts[] = "};\n";
                 }
-                if (count($neededCanonicalAttr) > 0)
+                if (!empty($neededCanonicalAttr))
                 {
                     $jsParts[] = "var LEMvarNameAttr = {\n";
                     $jsParts[] = implode(",\n",$neededCanonicalAttr);
@@ -8049,7 +8049,7 @@ EOST;
                 $result = LimeExpressionManager::ProcessString($test, 40, NULL, false, 1, 1);
                 $prettyPrint = LimeExpressionManager::GetLastPrettyPrintExpression();
                 $varsUsed = $LEM->em->GetAllVarsUsed();
-                if (count($varsUsed) > 0) {
+                if (!empty($varsUsed)) {
                     sort($varsUsed);
                     $varList = implode(',<br />', $varsUsed);
                 }
@@ -8745,7 +8745,7 @@ EOD;
                                     // move the files from tmp to the files folder
 
                                     $tmp = $LEM->surveyOptions['tempdir'] . 'upload'. DIRECTORY_SEPARATOR;
-                                    if (!is_null($phparray) && count($phparray) > 0)
+                                    if (!empty($phparray))
                                     {
                                         // Move the (unmoved, temp) files from temp to files directory.
                                         // Check all possible file uploads
@@ -9429,7 +9429,7 @@ EOD;
                 {
                     $attrs['other'] = $LEM->questionSeq2relevance[$qseq]['other'];
                 }
-                if (count($attrs) > 0)
+                if (!empty($attrs))
                 {
                     $attrTable = "<table id='logicfileattributetable'><tr><th>" . $LEM->gT("Question attribute") . "</th><th>" . $LEM->gT("Value"). "</th></tr>\n";
                     $count=0;
@@ -9786,7 +9786,7 @@ EOD;
                 $out .= LimeExpressionManager::GetDebugTimingMessage();
             }
 
-            if (count($allErrors) > 0) {
+            if (!empty($allErrors)) {
                 $out = "<p class='alert alert-danger'>". $LEM->ngT("{n} question contains errors that need to be corrected.|{n} questions contain errors that need to be corrected.", count($allErrors)) . "</p>\n" . $out;
             }
             else {
@@ -9972,7 +9972,7 @@ EOD;
                     //////
                     // SHOW QUESTION ATTRIBUTES THAT ARE PROCESSED BY EM
                     //////
-                    if (isset($LEM->qattr[$qid]) && count($LEM->qattr[$qid]) > 0) {
+                    if (!empty($LEM->qattr[$qid])) {
                         foreach ($LEM->qattr[$qid] as $key=>$value) {
                             if (is_null($value) || trim($value) == '') {
                                 continue;
