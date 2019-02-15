@@ -15,7 +15,7 @@
     //Security Checked: POST/GET/SESSION/DB/returnGlobal
     function initKcfinder()
     {
-     Yii::app()->session['KCFINDER'] = array();
+        Yii::app()->session['KCFINDER'] = array();
 
         $sAllowedExtensions = implode(' ', array_map('trim', explode(',', Yii::app()->getConfig('allowedresourcesuploads'))));
         $_SESSION['KCFINDER']['types'] = array(
@@ -109,17 +109,12 @@
 
     function PrepareEditorScript($load=false, $controller = null)
     {
-        if ($controller == null)
-        {
+        if ($controller == null) {
             $controller = Yii::app()->getController();
         }
-        if ($load == false)
-        {
-
+        if ($load == false) {
             return $controller->renderPartial('/admin/survey/prepareEditorScript_view',array(),true);
-        }
-        else
-        {
+        } else {
             $controller->renderPartial('/admin/survey/prepareEditorScript_view',array());
         }
     }
@@ -127,12 +122,9 @@
     function getEditor($fieldtype,$fieldname,$fieldtext, $surveyID=null,$gID=null,$qID=null,$action=null)
     {
         initKcfinder();
-        //error_log("TIBO fieldtype=$fieldtype,fieldname=$fieldname,fieldtext=$fieldtext,surveyID=$surveyID,gID=$gID,qID=$qID,action=$action");
         $session = &Yii::app()->session;
 
-        if ($session['htmleditormode'] &&
-        $session['htmleditormode'] == 'none')
-        {
+        if ($session['htmleditormode'] && $session['htmleditormode'] == 'none') {
             return '';
         }
 
@@ -222,13 +214,7 @@
                 .",toolbar:'inline'\n";
             }
         }
-
-        if ( $fieldtype == 'email-inv' ||
-        $fieldtype == 'email-reg' ||
-        $fieldtype == 'email-conf'||
-        $fieldtype == 'email-admin-notification'||
-        $fieldtype == 'email-admin-resp'||
-        $fieldtype == 'email-rem' )
+        if ( substr($fieldtype,0,6)==="email-" )
         {
             $htmlformatoption = ",fullPage:true\n";
         }

@@ -4133,6 +4133,9 @@ function SendEmailMessage($body, $subject, $to, $from, $sitename, $ishtml=false,
             $body="<html>".$body."</html>";
         }
         $mail->msgHTML($body,App()->getConfig("publicdir")); // This allow embedded image if we remove the servername from image
+        require_once(APPPATH.'/third_party/html2text/src/Html2Text.php');
+        $html = new \Html2Text\Html2Text($body);
+        $mail->AltBody = $html->getText();
     }
     else
     {
