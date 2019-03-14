@@ -987,7 +987,9 @@ class export extends Survey_Common_Action {
     {
         $sTempDir     = Yii::app()->getConfig("tempdir");
         $aZIPFileName = $sTempDir . DIRECTORY_SEPARATOR . $sZip;
-
+        if(dirname(realpath($aZIPFileName)) != $sTempDir) {
+           throw new CHttpException(400,gT('Bad request')); // Hacking filename : Bad request and end
+        }
         if ( is_file( $aZIPFileName ) )
         {
             $fn = "surveys_archive.zip";

@@ -12,7 +12,7 @@
  *150413
  */
 
-$config['versionnumber'] = '2.73.2 (SondagesPro)';
+$config['versionnumber'] = '2.73.3';
 $config['dbversionnumber'] = 263;
 $config['buildnumber'] = '';
 $config['updatable'] = true;
