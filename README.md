@@ -17,4 +17,4 @@ However updating to the official version 3.15.9 or higher is recommended.
 - TradeMark: The name LimeSurvey™ and the logo is a registered trademark of Fa. Carsten Schmitz / Germany <https://www.limesurvey.org/about-limesurvey/license>
 
 ## Say thanks ##
-- You can use [liberapay](https://liberapay.com/Shnoulle/donate) to help me to maintain 2.6lts.
+- You can use [liberapay](https://liberapay.com/SondagesPro) to help me to maintain 2.6lts.
