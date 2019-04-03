@@ -15,3 +15,6 @@ However updating to the official version 3.15.9 or higher is recommended.
 - Copyright © 2016-2019 Denis Chenu <http://sondages.pro>
 - License: GNU/GPL License v3 or later, see gpl-3.0.txt
 - TradeMark: The name LimeSurvey™ and the logo is a registered trademark of Fa. Carsten Schmitz / Germany <https://www.limesurvey.org/about-limesurvey/license>
+
+## Say thanks ##
+- You can [liberapay](https://liberapay.com/Shnoulle/donate) to help me to maintain 2.6lts.
