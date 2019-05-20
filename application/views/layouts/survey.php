@@ -7,7 +7,7 @@
         /* @var $cs CClientScript */
         $cs=Yii::app()->getClientScript();
         $cs->registerCoreScript('jquery');
-        $cs->registerScriptFile(Yii::app()->getConfig('third_party') . 'jqueryui/js/jquery-ui-1.10.0.custom.js');
+        $cs->registerCoreScript('jqueryui');
         $cs->registerScriptFile(Yii::app()->getConfig('generalscripts') . 'jquery/jquery.ui.touch-punch.min.js');
         $cs->registerScriptFile(Yii::app()->getConfig('generalscripts') . 'jquery/jquery.qtip.js');
         $cs->registerScriptFile(Yii::app()->getConfig('generalscripts') . 'jquery/jquery.notify.js');

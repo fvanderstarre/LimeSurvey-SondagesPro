@@ -8,7 +8,7 @@ return array(
     'jquery' => array(
         'baseUrl' => 'third_party/jquery/',
         'js' => array(
-            'jquery-1.11.1.min.js'
+            'jquery.js'
         )
     ),
     'jqgrid' => array(
@@ -50,15 +50,22 @@ return array(
         
     ),
     'jqueryui' => array(
-        'baseUrl' => 'third_party/jqueryui/',
+        'baseUrl' => 'third_party/jquery-ui/',
         'js' => array(
-            'js/jquery-ui-1.10.3.custom.min.js'
+            'jquery-ui.min.js'
         ),
         'css' => array(
-            //'css/smoothness/jquery-ui-1.10.0.custom.min.css'
+            'jquery-ui.min.css',
+            'jquery-ui.structure.min.css',
+            'jquery-ui.theme.min.css'
         ),
         'depends' => array(
             'jquery'
+        )
+    ),
+    'jquery.ui' => array(
+        'depends' => array(
+            'jqueryui'
         )
     ),
     'jquery-bindWithDelay' => array(
