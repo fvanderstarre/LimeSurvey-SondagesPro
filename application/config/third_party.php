@@ -63,6 +63,11 @@ return array(
             'jquery'
         )
     ),
+    'jquery.ui' => array(
+        'depends' => array(
+            'jqueryui'
+        )
+    ),
     'jquery-bindWithDelay' => array(
         'baseUrl' => 'third_party/jquery-bindWithDelay',
         'js' => array(
